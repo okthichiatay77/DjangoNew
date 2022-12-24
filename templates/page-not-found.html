@@ -1,0 +1,74 @@
+{% extends 'navbar.html' %}
+
+
+{% block title %}
+    Page Error 404
+{% endblock %}
+
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 notfound">
+                    <h2>404</h2>
+                    <p class="lead">Sorry we could not reach the page you were looking for. <br>Content has been deleted
+                        or modified.</p>
+                    <form class="calculateform">
+                        <div class="item-box">
+                            <div class="item-top form-inline">
+                                <div class="form-group">
+                                    <div class="input-group2">
+						                    <span class="input-addon">
+												<i class="fa fa-search"></i>
+											</span>
+                                        <input type="url" class="form-control" id="urladres" name="url"
+                                               placeholder="What you are looking?">
+                                    </div>
+                                </div>
+                                <input type="submit" name="send" value="Search" class="btn btn-default"/>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- end notfound -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section><!-- end section -->
+
+    <section class="section ldp">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="client-box">
+                        <a href="#"><img src="upload/client_01.png" alt="" class="img-responsive"></a>
+                    </div>
+                </div><!-- end col -->
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="client-box">
+                        <a href="#"><img src="upload/client_02.png" alt="" class="img-responsive"></a>
+                    </div>
+                </div><!-- end col -->
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="client-box">
+                        <a href="#"><img src="upload/client_03.png" alt="" class="img-responsive"></a>
+                    </div>
+                </div><!-- end col -->
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="client-box">
+                        <a href="#"><img src="upload/client_04.png" alt="" class="img-responsive"></a>
+                    </div>
+                </div><!-- end col -->
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="client-box">
+                        <a href="#"><img src="upload/client_05.png" alt="" class="img-responsive"></a>
+                    </div>
+                </div><!-- end col -->
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="client-box">
+                        <a href="#"><img src="upload/client_06.png" alt="" class="img-responsive"></a>
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section><!-- end section -->
+{% endblock %}
