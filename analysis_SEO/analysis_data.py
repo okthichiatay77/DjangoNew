@@ -25,6 +25,7 @@ def handle_total(domain):
     heading = handle_heading(soup)
     list_ex = link_external(domain, soup)
     favicon_check = favicon(soup)
+    check_sitemap = handle_sitemap(domain)
 
     return [
         url_img,
@@ -40,7 +41,8 @@ def handle_total(domain):
         heading,
         iframe,
         list_ex,
-        favicon_check
+        favicon_check,
+        check_sitemap,
     ]
 
 
@@ -200,8 +202,12 @@ def check_nofollow(soup):
     return result
 
 
-def handle_sitemap(soup):
-    result = ''
+def handle_sitemap(domain):
+    status_code = requests.get(domain + '/sitemap.xml').status_code
+    if status_code != 200:
+        result = 'Trang web của bạn không có file sitemap.xml'
+    else:
+        result = 'Pass'
 
     return result
 

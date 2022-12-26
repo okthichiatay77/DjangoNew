@@ -223,38 +223,6 @@
                                 </tr>
                             {% endif %}
 
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">H2 Heading Elements</td>
-                                <td class="col-md-8">
-                                    Good! There is (4) H2 tag on your web site.
-                                    <ul>
-                                        <li>Cras nec nisi quis ipsum bibendum tristique.</li>
-                                        <li>Fusce quis nisi facilisis congue eget tempus purus.</li>
-                                        <li>Aenean sit amet ligula vel nisl dictum posuere.</li>
-                                        <li>In euismod ipsum quis eros gravida rutrum.</li>
-                                    </ul>
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="first-col col-md-4 bad">H3 Heading Elements</td>
-                                <td class="col-md-8">Sorry! There is (12) H3 tag found on your web site. Please add
-                                    maximum (6) H3 heading tags.
-                                </td>
-                            </tr>
-
-                            {% if r_iframe == 'Pass' %}
-                                <tr class="row">
-                                    <td class="first-col col-md-4 good">H4 Heading Elements</td>
-                                    <td class="col-md-8">Sorry! H4 tag not found on your web site.</td>
-                                </tr>
-                            {% else %}
-                                <tr class="row">
-                                    <td class="first-col col-md-4 bad">H4 Heading Elements</td>
-                                    <td class="col-md-8">Sorry! H4 tag not found on your web site.</td>
-                                </tr>
-                            {% endif %}
-
                             {% if r_iframe == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Iframe</td>
@@ -271,16 +239,25 @@
                                 <td class="first-col col-md-4 good">Embed / Flash</td>
                                 <td class="col-md-8">Fantastic! No embed or flash element on your site</td>
                             </tr>
+                            {% if check_sitemap == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Sitemap (XML)</td>
+                                    <td class="col-md-8">
+                                        Awesome! There is sitemap at your web site
+                                        <ul>
+                                            <li>yoursite.com/sitemap.xml</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Sitemap (XML)</td>
+                                    <td class="col-md-8">
+                                        Trang web của bạn không sử dụng sitemap
+                                    </td>
+                                </tr>
+                            {% endif %}
 
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Sitemap (XML)</td>
-                                <td class="col-md-8">
-                                    Awesome! There is sitemap at your web site
-                                    <ul>
-                                        <li>yoursite.com/sitemap.xml</li>
-                                    </ul>
-                                </td>
-                            </tr>
                             <tr class="row">
                                 <td class="first-col col-md-4 good">Robots.txt</td>
                                 <td class="col-md-8">
