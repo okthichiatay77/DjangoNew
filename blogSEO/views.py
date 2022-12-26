@@ -1,8 +1,20 @@
 from django.shortcuts import render
 from . import models
+from django.http.response import HttpResponseRedirect
+from django.urls import reverse
+
+from analysis_SEO.analysis_data import handle_total
 # Create your views here.
 
 def index_view(request):
+
+    if request.method == 'POST':
+
+        domain = request.POST['url']
+        url = reverse('blog:seo_analysis', kwargs={'domain': str(domain)})
+
+        return HttpResponseRedirect(url)
+
     return render(request, 'blogs/index.html')
 
 
@@ -16,7 +28,11 @@ def detail_blog_view(request, pk):
 
 
 def page_about_view(request):
-
     return render(request, 'page-about.html')
 
+def seo_analysis(request, domain):
+    url_img, title, canonical, desc, heading, iframe = handle_total(domain)
+    return render(request, 'page-seo-analysis.html', {'url_img': url_img, 'canonical': canonical,
+                                                      'title': title, 'heading': heading,
+                                                      'desc': desc, 'r_iframe': iframe})
 

@@ -15,6 +15,7 @@
                     <h2>Hãy phân tích SEO trang web của bạn </h2>
                     <p class="lead">Now you can customize your SEO service according to your need</p>
                     <form class="calculateform" method="post">
+                        {% csrf_token %}
                         <div class="item-box">
                             <div class="item-top form-inline">
                                 <div class="form-group">
@@ -22,7 +23,7 @@
 						                    <span class="input-addon">
 												<i class="fa fa-link"></i>
 											</span>
-                                        <input type="url" class="form-control" id="urladres" name="url"
+                                        <input type="text" class="form-control" id="urladres" name="url"
                                                placeholder="Add your website url">
                                     </div>
                                 </div>
@@ -76,7 +77,8 @@
                 <small>Chào mừng bạn đến với dịch vụ của tôi</small>
                 <h3>Những lý do bạn chọn tôi</h3>
                 <hr>
-                <p class="lead"> Học được nhiều kiến thức về SEO, Python, Kỹ thuật Web, Nâng cao trình độ của bạn.<br>Và nó hoàn toàn miễn phí.</p>
+                <p class="lead"> Học được nhiều kiến thức về SEO, Python, Kỹ thuật Web, Nâng cao trình độ của bạn.<br>Và
+                    nó hoàn toàn miễn phí.</p>
             </div><!-- end section-title -->
 
             <div class="row service-list text-center">
@@ -85,7 +87,8 @@
                         <i class="flaticon-competition"></i>
                         <div class="service-details">
                             <h4><a href="service-01.html" title="">Tôi làm gì?</a></h4>
-                            <p>Hiện tại tôi có hướng thú với các lĩnh vực liên quan đến website và tôi muốn thực hiện chúng qua Python.</p>
+                            <p>Hiện tại tôi có hướng thú với các lĩnh vực liên quan đến website và tôi muốn thực hiện
+                                chúng qua Python.</p>
                             <a href="#" class="readmore">View Details</a>
                         </div>
                     </div><!-- end service-wrapper -->
