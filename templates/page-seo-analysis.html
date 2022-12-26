@@ -80,39 +80,149 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">HTML Version</td>
-                                <td class="col-md-8">Perfect! You are using the HTML5 version</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Character encoding</td>
-                                <td class="col-md-8">Perfect! Your character encoding supports all languages</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Site Title</td>
-                                <td class="col-md-8">{{ title }}</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Site Description</td>
-                                <td class="col-md-8">{{ desc }}</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Canonical</td>
-                                <td class="col-md-8">{{ canonical }}</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Favicon</td>
-                                <td class="col-md-8">Awesome! Your site provide a favicon</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">H1 Heading Elements</td>
-                                <td class="col-md-8">
-                                    {{ heading }}
-                                    <ul>
-                                        <li>A real time search engine optimization</li>
-                                    </ul>
-                                </td>
-                            </tr>
+
+                            {% if title == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">HTML Version</td>
+                                    <td class="col-md-8">Perfect! You are using the HTML5 version</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">HTML Version</td>
+                                    <td class="col-md-8">Perfect! You are using the HTML5 version</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if title == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Site Title</td>
+                                    <td class="col-md-8">{{ title }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Site Title</td>
+                                    <td class="col-md-8">{{ title }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if desc == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Site Description</td>
+                                    <td class="col-md-8">{{ desc }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Site Description</td>
+                                    <td class="col-md-8">{{ desc }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if canonical == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Canonical</td>
+                                    <td class="col-md-8">{{ canonical }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Canonical</td>
+                                    <td class="col-md-8">{{ canonical }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if robot == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Meta Robot</td>
+                                    <td class="col-md-8">{{ robot }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Meta Robot</td>
+                                    <td class="col-md-8">{{ robot }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if revisit_after == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Meta Revisit-After</td>
+                                    <td class="col-md-8">{{ revisit_after }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Meta Revisit-After</td>
+                                    <td class="col-md-8">{{ revisit_after }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if content_language == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Meta Content-Language</td>
+                                    <td class="col-md-8">{{ content_language }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Meta Content-Language</td>
+                                    <td class="col-md-8">{{ content_language }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if meta_content_type == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Meta Content-Type</td>
+                                    <td class="col-md-8">{{ meta_content_type }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Meta Content-Type</td>
+                                    <td class="col-md-8">{{ meta_content_type }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if viewport == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Meta Viewport</td>
+                                    <td class="col-md-8">{{ viewport }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Meta Viewport</td>
+                                    <td class="col-md-8">{{ viewport }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if favicon == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Favicon</td>
+                                    <td class="col-md-8">{{ favicon }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Favicon</td>
+                                    <td class="col-md-8">{{ favicon }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if heading == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">H1 Heading Elements</td>
+                                    <td class="col-md-8">
+                                        {{ heading }}
+                                        <ul>
+                                            <li>Tốt trang web của bạn có thẻ h1 đúng yêu cầu</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">H1 Heading Elements</td>
+                                    <td class="col-md-8">
+                                        {{ heading }}
+                                        <ul>
+                                            <li>Trang web của bạn không có thẻ h1 nào.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endif %}
+
                             <tr class="row">
                                 <td class="first-col col-md-4 good">H2 Heading Elements</td>
                                 <td class="col-md-8">
@@ -125,24 +235,43 @@
                                     </ul>
                                 </td>
                             </tr>
+
                             <tr class="row">
                                 <td class="first-col col-md-4 bad">H3 Heading Elements</td>
                                 <td class="col-md-8">Sorry! There is (12) H3 tag found on your web site. Please add
                                     maximum (6) H3 heading tags.
                                 </td>
                             </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 bad">H4 Heading Elements</td>
-                                <td class="col-md-8">Sorry! H4 tag not found on your web site.</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Iframe</td>
-                                <td class="col-md-8">{{ r_iframe }}</td>
-                            </tr>
+
+                            {% if r_iframe == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">H4 Heading Elements</td>
+                                    <td class="col-md-8">Sorry! H4 tag not found on your web site.</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">H4 Heading Elements</td>
+                                    <td class="col-md-8">Sorry! H4 tag not found on your web site.</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if r_iframe == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Iframe</td>
+                                    <td class="col-md-8">{{ r_iframe }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Iframe</td>
+                                    <td class="col-md-8">{{ r_iframe }}</td>
+                                </tr>
+                            {% endif %}
+
                             <tr class="row">
                                 <td class="first-col col-md-4 good">Embed / Flash</td>
                                 <td class="col-md-8">Fantastic! No embed or flash element on your site</td>
                             </tr>
+
                             <tr class="row">
                                 <td class="first-col col-md-4 good">Sitemap (XML)</td>
                                 <td class="col-md-8">
@@ -161,38 +290,33 @@
                                     </ul>
                                 </td>
                             </tr>
+
                             <tr class="row">
-                                <td class="first-col col-md-4 bad">Links</td>
-                                <td class="col-md-8">
-                                    Bad! There is 21 external links on your web site. For a great SEO score, you can add
-                                    max 10 external links.
-                                    <ul>
-                                        <li>http://rpc.twingly.com</li>
-                                        <li>http://api.feedster.com/ping</li>
-                                        <li>http://api.moreover.com/RPC2</li>
-                                        <li>http://api.moreover.com/ping</li>
-                                        <li>http://www.blogdigger.com/RPC2</li>
-                                        <li>http://www.blogshares.com/rpc.php</li>
-                                        <li>http://www.blogsnow.com/ping</li>
-                                        <li>http://www.blogstreet.com/xrbin/xmlrpc.cgi</li>
-                                        <li>http://bulkfeeds.net/rpc</li>
-                                        <li>http://www.newsisfree.com/xmlrpctest.php</li>
-                                        <li>http://ping.blo.gs/</li>
-                                        <li>http://ping.feedburner.com</li>
-                                        <li>http://ping.syndic8.com/xmlrpc.php</li>
-                                        <li>http://ping.weblogalot.com/rpc.php</li>
-                                        <li>http://rpc.blogrolling.com/pinger/</li>
-                                        <li>http://rpc.technorati.com/rpc/ping</li>
-                                        <li>http://rpc.weblogs.com/RPC2</li>
-                                        <li>http://www.feedsubmitter.com</li>
-                                        <li>http://blo.gs/ping.php</li>
-                                        <li>http://www.pingerati.net</li>
-                                        <li>http://www.pingmyblog.com</li>
-                                        <li>http://geourl.org/ping</li>
-                                        <li>http://ipings.com</li>
-                                        <li>http://www.weblogalot.com/ping</li>
-                                    </ul>
-                                </td>
+                                {% if list_link_external|length > 10 %}
+                                    <td class="first-col col-md-4 bad">Links</td>
+                                    <td class="col-md-8">
+                                        Bad! There is {{ list_link_external|length }} external links on your web site.
+                                        For a
+                                        great SEO score, you can add
+                                        max 10 external links.
+
+                                        <ul>
+                                            {% for link in list_link_external %}
+                                                <li>{{ link }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                {% else %}
+                                    <td class="first-col col-md-4 good">Links</td>
+                                    <td class="col-md-8">
+                                        Good! There is {{ list_link_external|length }} external links on your web site.
+                                        <ul>
+                                            {% for link in list_link_external %}
+                                                <li>{{ link }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                {% endif %}
                             </tr>
                             </tbody>
                         </table>

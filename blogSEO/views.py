@@ -31,8 +31,11 @@ def page_about_view(request):
     return render(request, 'page-about.html')
 
 def seo_analysis(request, domain):
-    url_img, title, canonical, desc, heading, iframe = handle_total(domain)
+    url_img, title, desc, canonical, robot, revisit_after, content_lang, meta_content_type, viewport, heading, iframe, link_external, favicon = handle_total(domain)
     return render(request, 'page-seo-analysis.html', {'url_img': url_img, 'canonical': canonical,
                                                       'title': title, 'heading': heading,
-                                                      'desc': desc, 'r_iframe': iframe})
+                                                      'desc': desc, 'r_iframe': iframe,
+                                                      'list_link_external': link_external, 'favicon': favicon, 'robot': robot,
+                                                      'revisit_after': revisit_after, 'content_language': content_lang,
+                                                      'meta_content_type': meta_content_type, 'viewport': viewport})
 
