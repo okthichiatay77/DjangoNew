@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Phan Anh Tu">
+    <meta name="author" content="Phan Anh Tu">
+    <meta name="description" content="hoc python, study python, what is seo, seo la gi, cau truc du lieu va thuat toan">
+    <meta name="robots" content="">
+    <meta http-equiv="content-language" content="vi"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet">
+
+    {#    bootstrap   #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+    {% block head %}
+
+    {% endblock %}
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <title>{% block title %}
+
+    {% endblock %}</title>
+</head>
+<body>
+<div class="p-5 bg-info text-white text-center">
+  <h1>My First Bootstrap 5 Page</h1>
+  <p>Resize this responsive page to see the effect!</p>
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Về Tôi</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% block content %}
+
+{% endblock %}
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <p>Footer</p>
+</div>
+</body>
+</html>

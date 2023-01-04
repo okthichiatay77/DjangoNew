@@ -1,0 +1,31 @@
+{% extends 'navbar_site.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/site/css/home.css">
+{% endblock %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" alt="Snow" style="width:100%;">
+        <div class="bottom-left">Bottom Left</div>
+        <div class="top-left">Top Left</div>
+        <div class="top-right">Top Right</div>
+        <div class="bottom-right">Bottom Right</div>
+        <div class="centered">
+            <h2>Hãy phân tích trang web của bạn.</h2>
+            <form class="form-domain" method="post">
+                {% csrf_token %}
+                <label>
+                    <i class="fa fa-link"></i>
+                    <input class="input-form" type="text" name="your_domain" placeholder="VD: myblogtu.com">
+                </label>
+                <button class="btn btn-info">Phân tích</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
