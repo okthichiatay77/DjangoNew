@@ -9,7 +9,14 @@ def handle_total(domain):
     data = requests.get(domain)
     soup = BeautifulSoup(data.content.lower(), 'html.parser')
 
-    url_img = soup.find('img', attrs={'class': 'themeforbirthday'})
+    url_img = soup.find_all('link')
+    for img in url_img:
+        if 'icon' in img['rel']:
+            url_img = img['href']
+            break
+
+    if 'http' not in url_img:
+        url_img = domain + url_img
 
     title = handle_title(soup)
     desc = handle_meta_description(soup)

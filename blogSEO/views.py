@@ -32,6 +32,14 @@ def page_about_view(request):
 
 def seo_analysis(request, domain):
     url_img, title, desc, canonical, robot, revisit_after, content_lang, meta_content_type, viewport, heading, iframe, link_external, favicon, check_sitemap = handle_total(domain)
+
+    if request.method == 'POST':
+        url = request.POST['url']
+
+        url = reverse('blog:seo_analysis', kwargs={'domain': str(url)})
+
+        return HttpResponseRedirect(url)
+
     return render(request, 'page-seo-analysis.html', {'url_img': url_img, 'canonical': canonical,
                                                       'title': title, 'heading': heading,
                                                       'desc': desc, 'r_iframe': iframe,
@@ -40,3 +48,6 @@ def seo_analysis(request, domain):
                                                       'meta_content_type': meta_content_type, 'viewport': viewport,
                                                       'check_sitemap': check_sitemap})
 
+def analysis_AMP(request):
+
+    return render(request, 'analysis_AMP.html')
