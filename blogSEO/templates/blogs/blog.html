@@ -31,8 +31,10 @@
                     {% for blog in list_blog %}
                         <div class="blog-box clearfix row">
                             <div class="media-box col-md-4">
-                                <a href="{% url 'blog:detail_blog' pk=blog.pk %}" title=""><img src="/media/upload/blog_01.jpg" alt=""
-                                                                         class="img-responsive img-thumbnail"></a>
+                                <a href="{% url 'blog:detail_blog' pk=blog.pk %}" title="">
+                                    <img src="/media/{{ blog.image_blog }}" alt=""
+                                         class="img-responsive img-thumbnail" width="600" height="600">
+                                </a>
                             </div><!-- end media-box -->
                             <div class="blog-desc col-md-8">
                                 <div class="blog-meta">
