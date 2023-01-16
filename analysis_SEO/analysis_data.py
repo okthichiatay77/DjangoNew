@@ -209,7 +209,10 @@ def check_nofollow(soup):
 
 
 def handle_sitemap(domain):
-    status_code = requests.get(domain + '/sitemap.xml').status_code
+    if domain[-1] == '/':
+        status_code = requests.get(domain + 'sitemap.xml').status_code
+    else:
+        status_code = requests.get(domain + '/sitemap.xml').status_code
     if status_code != 200:
         result = 'Trang web của bạn không có file sitemap.xml'
     else:
