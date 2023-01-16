@@ -13,7 +13,8 @@
                 <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
                     <h2>Let's Analysis Your Website SEO</h2>
                     <p class="lead">Now you can customize your SEO service according to your need</p>
-                    <form class="calculateform">
+                    <form class="calculateform" method="post">
+                        {% csrf_token %}
                         <div class="item-box">
                             <div class="item-top form-inline">
                                 <div class="form-group">
@@ -21,7 +22,7 @@
 						                    <span class="input-addon">
 												<i class="fa fa-link"></i>
 											</span>
-                                        <input type="text" class="form-control" id="urladres" name="url"
+                                        <input type="url" class="form-control" id="urladres" name="url"
                                                placeholder="Add your website url">
                                     </div>
                                 </div>

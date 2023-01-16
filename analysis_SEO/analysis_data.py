@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 
 
 def handle_total(domain):
-    domain = 'https://' + domain
     data = requests.get(domain)
     soup = BeautifulSoup(data.content.lower(), 'html.parser')
 
