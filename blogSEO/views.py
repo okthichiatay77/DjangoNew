@@ -35,7 +35,6 @@ def page_about_view(request):
 def seo_analysis(request, domain):
     if request.method == 'POST':
         url = request.POST['url']
-        print(url)
         url_img, title, desc, canonical, robot, revisit_after, content_lang, meta_content_type, viewport, heading, iframe, link_external, favicon, check_sitemap = handle_total(
             url)
         url = reverse('blog:seo_analysis', kwargs={'domain': str(url)})
