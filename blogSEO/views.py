@@ -57,6 +57,7 @@ def seo_analysis(request, domain):
     context['good'] = good
     context['bad'] = bad
     context['total'] = bad + good
+    context['with_point'] = "width:78%"
 
 
     return render(request, 'page-seo-analysis.html', context=context)
