@@ -58,11 +58,11 @@
                                 <tbody>
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Good</td>
-                                    <td class="col-md-8">12/24</td>
+                                    <td class="col-md-8">{{ good }}/{{ total }}</td>
                                 </tr>
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Bad</td>
-                                    <td class="col-md-8">3/24</td>
+                                    <td class="col-md-8">{{ bad }}/{{ total }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -233,6 +233,18 @@
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Iframe</td>
                                     <td class="col-md-8">{{ r_iframe }}</td>
+                                </tr>
+                            {% endif %}
+
+                            {% if image_alt == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Image Alt</td>
+                                    <td class="col-md-8">{{ image_alt }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Image Alt</td>
+                                    <td class="col-md-8">{{ image_alt }}</td>
                                 </tr>
                             {% endif %}
 

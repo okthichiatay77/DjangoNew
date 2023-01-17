@@ -32,24 +32,17 @@ def handle_total(domain):
     list_ex = link_external(domain, soup)
     favicon_check = favicon(soup)
     check_sitemap = handle_sitemap(domain)
+    img_alt = image_alt(soup)
 
-    return [
-        url_img,
-        title,
-        desc,
-        canonical,
-        robot,
-        revisit_after,
-        content_lang,
-        meta_content_type,
-        viewport,
-
-        heading,
-        iframe,
-        list_ex,
-        favicon_check,
-        check_sitemap,
-    ]
+    context = {'url_img': url_img, 'canonical': canonical,
+               'title': title, 'heading': heading,
+               'desc': desc, 'r_iframe': iframe,
+               'list_link_external': list_ex, 'favicon': favicon_check,
+               'robot': robot,
+               'revisit_after': revisit_after, 'content_language': content_lang,
+               'meta_content_type': meta_content_type, 'viewport': viewport,
+               'check_sitemap': check_sitemap, 'image_alt': img_alt}
+    return context
 
 
 def html_version(soup):
@@ -167,7 +160,6 @@ def content_type(soup):
 
 
 def meta_viewport(soup):
-
     check = soup.find_all('meta', attrs={'name': 'viewport'})
     if check:
         if len(check) > 1:
@@ -197,7 +189,16 @@ def favicon(soup):
 
 
 def image_alt(soup):
-    result = ''
+    result = 'Pass'
+
+    list_img = soup.find_all('img', src=True)
+    for img in list_img:
+        try:
+            img['alt']
+        except:
+            if result == 'Pass':
+                result = 0
+            result += 1
 
     return result
 

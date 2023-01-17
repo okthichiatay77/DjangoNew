@@ -35,23 +35,31 @@ def page_about_view(request):
 def seo_analysis(request, domain):
     if request.method == 'POST':
         url = request.POST['url']
-        url_img, title, desc, canonical, robot, revisit_after, content_lang, meta_content_type, viewport, heading, iframe, link_external, favicon, check_sitemap = handle_total(
-            url)
-        url = reverse('blog:seo_analysis', kwargs={'domain': str(url)})
-
-        return HttpResponseRedirect(url)
+        context = handle_total(url)
+        good = 0
+        bad = 0
+        for check in context:
+            if context[check] == 'Pass':
+                good += 1
+            else:
+                bad += 1
+        return HttpResponseRedirect(reverse('blog:seo_analysis', kwargs={'domain': str(url)}))
     else:
-        url_img, title, desc, canonical, robot, revisit_after, content_lang, meta_content_type, viewport, heading, iframe, link_external, favicon, check_sitemap = handle_total(
-            domain)
+        context = handle_total(domain)
+        good = 0
+        bad = 0
+        for check in context:
+            if context[check] == 'Pass':
+                good += 1
+            else:
+                bad += 1
 
-    return render(request, 'page-seo-analysis.html', {'url_img': url_img, 'canonical': canonical,
-                                                      'title': title, 'heading': heading,
-                                                      'desc': desc, 'r_iframe': iframe,
-                                                      'list_link_external': link_external, 'favicon': favicon,
-                                                      'robot': robot,
-                                                      'revisit_after': revisit_after, 'content_language': content_lang,
-                                                      'meta_content_type': meta_content_type, 'viewport': viewport,
-                                                      'check_sitemap': check_sitemap})
+    context['good'] = good
+    context['bad'] = bad
+    context['total'] = bad + good
+
+
+    return render(request, 'page-seo-analysis.html', context=context)
 
 
 def analysis_AMP(request):
