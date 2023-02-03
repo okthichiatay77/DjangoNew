@@ -49,15 +49,20 @@ def seo_analysis(request, domain):
         good = 0
         bad = 0
         for check in context:
-            if context[check] == 'Pass':
-                good += 1
-            else:
-                bad += 1
+            try:
+                if context[check][0] == 'Pass':
+                    good += 1
+                elif (context[check][0] == 'Error') or (context[check][0] == 'Warning'):
+                    bad += 1
+            except:
+                pass
 
     context['good'] = good
     context['bad'] = bad
     context['total'] = bad + good
-    context['with_point'] = "width:78%"
+    phan_tram = int((good / context['total']) * 100)
+    context['point'] = phan_tram
+    context['with_point'] = f"width:{phan_tram}%"
 
 
     return render(request, 'page-seo-analysis.html', context=context)
