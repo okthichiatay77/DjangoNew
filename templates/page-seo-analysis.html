@@ -41,7 +41,8 @@
                 <div class="col-md-4">
                     <div class="seo-score">
                         <div class="website-screen">
-                            <img src="{{ url_img }}" alt="logo-of-domain" class="img-responsive" width="902" height="728">
+                            <img src="{{ url_img }}" alt="logo-of-domain" class="img-responsive" width="902"
+                                 height="728">
                         </div><!-- end website-screen -->
 
                         <div class="circle-detail">
@@ -82,133 +83,120 @@
                             </thead>
                             <tbody>
 
-                            {% if title == 'Pass' %}
-                                <tr class="row">
-                                    <td class="first-col col-md-4 good">HTML Version</td>
-                                    <td class="col-md-8">Perfect! You are using the HTML5 version</td>
-                                </tr>
-                            {% else %}
-                                <tr class="row">
-                                    <td class="first-col col-md-4 good">HTML Version</td>
-                                    <td class="col-md-8">Perfect! You are using the HTML5 version</td>
-                                </tr>
-                            {% endif %}
-
-                            {% if title == 'Pass' %}
+                            {% if title.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Site Title</td>
-                                    <td class="col-md-8">{{ title }}</td>
+                                    <td class="col-md-8">{{ title.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Site Title</td>
-                                    <td class="col-md-8">{{ title }}</td>
+                                    <td class="col-md-8">{{ title.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if desc == 'Pass' %}
+                            {% if desc.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Site Description</td>
-                                    <td class="col-md-8">{{ desc }}</td>
+                                    <td class="col-md-8">{{ desc.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Site Description</td>
-                                    <td class="col-md-8">{{ desc }}</td>
+                                    <td class="col-md-8">{{ desc.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if canonical == 'Pass' %}
+                            {% if canonical.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Canonical</td>
-                                    <td class="col-md-8">{{ canonical }}</td>
+                                    <td class="col-md-8">{{ canonical.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Canonical</td>
-                                    <td class="col-md-8">{{ canonical }}</td>
+                                    <td class="col-md-8">{{ canonical.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if robot == 'Pass' %}
+                            {% if robot.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Meta Robot</td>
-                                    <td class="col-md-8">{{ robot }}</td>
+                                    <td class="col-md-8">{{ robot.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Meta Robot</td>
-                                    <td class="col-md-8">{{ robot }}</td>
+                                    <td class="col-md-8">{{ robot.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if revisit_after == 'Pass' %}
+                            {% if revisit_after.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Meta Revisit-After</td>
-                                    <td class="col-md-8">{{ revisit_after }}</td>
+                                    <td class="col-md-8">{{ revisit_after.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Meta Revisit-After</td>
-                                    <td class="col-md-8">{{ revisit_after }}</td>
+                                    <td class="col-md-8">{{ revisit_after.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if content_language == 'Pass' %}
+                            {% if content_language.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Meta Content-Language</td>
-                                    <td class="col-md-8">{{ content_language }}</td>
+                                    <td class="col-md-8">{{ content_language.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Meta Content-Language</td>
-                                    <td class="col-md-8">{{ content_language }}</td>
+                                    <td class="col-md-8">{{ content_language.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if meta_content_type == 'Pass' %}
+                            {% if meta_content_type.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Meta Content-Type</td>
-                                    <td class="col-md-8">{{ meta_content_type }}</td>
+                                    <td class="col-md-8">{{ meta_content_type.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Meta Content-Type</td>
-                                    <td class="col-md-8">{{ meta_content_type }}</td>
+                                    <td class="col-md-8">{{ meta_content_type.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if viewport == 'Pass' %}
+                            {% if viewport.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Meta Viewport</td>
-                                    <td class="col-md-8">{{ viewport }}</td>
+                                    <td class="col-md-8">{{ viewport.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Meta Viewport</td>
-                                    <td class="col-md-8">{{ viewport }}</td>
+                                    <td class="col-md-8">{{ viewport.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if favicon == 'Pass' %}
+                            {% if favicon.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Favicon</td>
-                                    <td class="col-md-8">{{ favicon }}</td>
+                                    <td class="col-md-8">{{ favicon.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Favicon</td>
-                                    <td class="col-md-8">{{ favicon }}</td>
+                                    <td class="col-md-8">{{ favicon.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            {% if heading == 'Pass' %}
+                            {% if heading.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">H1 Heading Elements</td>
                                     <td class="col-md-8">
-                                        {{ heading }}
                                         <ul>
-                                            <li>Tốt trang web của bạn có thẻ h1 đúng yêu cầu</li>
+                                            <li>{{ heading.1 }}</li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -216,47 +204,31 @@
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">H1 Heading Elements</td>
                                     <td class="col-md-8">
-                                        {{ heading }}
                                         <ul>
-                                            <li>Trang web của bạn không có thẻ h1 nào.</li>
+                                            <li>{{ heading.1 }}</li>
                                         </ul>
                                     </td>
                                 </tr>
                             {% endif %}
 
-                            {% if r_iframe == 'Pass' %}
-                                <tr class="row">
-                                    <td class="first-col col-md-4 good">Iframe</td>
-                                    <td class="col-md-8">{{ r_iframe }}</td>
-                                </tr>
-                            {% else %}
-                                <tr class="row">
-                                    <td class="first-col col-md-4 bad">Iframe</td>
-                                    <td class="col-md-8">{{ r_iframe }}</td>
-                                </tr>
-                            {% endif %}
-
-                            {% if image_alt == 'Pass' %}
+                            {% if image_alt.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Image Alt</td>
-                                    <td class="col-md-8">{{ image_alt }}</td>
+                                    <td class="col-md-8">{{ image_alt.1 }}</td>
                                 </tr>
                             {% else %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Image Alt</td>
-                                    <td class="col-md-8">{{ image_alt }} có một thẻ img không có attribute alt</td>
+                                    <td class="col-md-8">{{ image_alt.1 }}</td>
                                 </tr>
                             {% endif %}
 
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Embed / Flash</td>
-                                <td class="col-md-8">Fantastic! No embed or flash element on your site</td>
-                            </tr>
-                            {% if check_sitemap == 'Pass' %}
+                            {% if check_sitemap.0 == 'Pass' %}
                                 <tr class="row">
                                     <td class="first-col col-md-4 good">Sitemap (XML)</td>
                                     <td class="col-md-8">
                                         Awesome! There is sitemap at your web site
+                                        {{ check_sitemap.1 }}
                                         <ul>
                                             <li>yoursite.com/sitemap.xml</li>
                                         </ul>
@@ -266,20 +238,41 @@
                                 <tr class="row">
                                     <td class="first-col col-md-4 bad">Sitemap (XML)</td>
                                     <td class="col-md-8">
-                                        Trang web của bạn không sử dụng sitemap
+                                        {{ check_sitemap.1 }}
                                     </td>
                                 </tr>
                             {% endif %}
 
-                            <tr class="row">
-                                <td class="first-col col-md-4 good">Robots.txt</td>
-                                <td class="col-md-8">
-                                    Awesome! There is robots.txt file at your web site.
-                                    <ul>
-                                        <li>yoursite.com/robots.txt</li>
-                                    </ul>
-                                </td>
-                            </tr>
+                            {% if robot.0 == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Robots.txt</td>
+                                    <td class="col-md-8">
+                                        {{ robot.1 }}
+                                        <ul>
+                                            <li>yoursite.com/robots.txt</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Sitemap (XML)</td>
+                                    <td class="col-md-8">
+                                        {{ robot.1 }}
+                                    </td>
+                                </tr>
+                            {% endif %}
+
+                            {% if nofollow.0 == 'Pass' %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 good">Nofollow External</td>
+                                    <td class="col-md-8">{{ nofollow.1 }}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="first-col col-md-4 bad">Nofollow External</td>
+                                    <td class="col-md-8">{{ nofollow.1 }}</td>
+                                </tr>
+                            {% endif %}
 
                             <tr class="row">
                                 {% if list_link_external|length > 10 %}
@@ -299,7 +292,8 @@
                                 {% else %}
                                     <td class="first-col col-md-4 good">Links</td>
                                     <td class="col-md-8">
-                                        Good! There is {{ list_link_external|length }} external links on your web site.
+                                        Tốt! Trang web có bạn chỉ có {{ list_link_external|length }} external link trên
+                                        trang web của bạn.
                                         <ul>
                                             {% for link in list_link_external %}
                                                 <li>{{ link }}</li>

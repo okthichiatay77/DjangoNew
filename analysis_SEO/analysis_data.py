@@ -26,7 +26,7 @@ def handle_total(domain):
     meta_content_type = content_type(soup)
     viewport = meta_viewport(soup)
 
-    iframe = handle_iframe(soup)
+    nofollow = check_nofollow(domain, soup)
 
     heading = handle_heading(soup)
     list_ex = link_external(domain, soup)
@@ -36,12 +36,12 @@ def handle_total(domain):
 
     context = {'url_img': url_img, 'canonical': canonical,
                'title': title, 'heading': heading,
-               'desc': desc, 'r_iframe': iframe,
+               'desc': desc,
                'list_link_external': list_ex, 'favicon': favicon_check,
                'robot': robot,
                'revisit_after': revisit_after, 'content_language': content_lang,
                'meta_content_type': meta_content_type, 'viewport': viewport,
-               'check_sitemap': check_sitemap, 'image_alt': img_alt}
+               'check_sitemap': check_sitemap, 'image_alt': img_alt, 'nofollow': nofollow}
     return context
 
 
@@ -242,8 +242,26 @@ def image_alt(soup):
     return result
 
 
-def check_nofollow(soup):
-    result = ''
+def check_nofollow(domain, soup):
+    check = 0
+    domain_netloc = urlparse(domain).netloc
+    for a in soup.find_all('a', href=True):
+        href = a['href']
+        if ('http' in href) and (domain_netloc not in urlparse(href).netloc):
+            try:
+                if str(a['rel']).strip() != 'nofollow':
+                    check += 1
+            except:
+                pass
+
+    if check != 0:
+        msg = 'Trang web của bạn có ' + str(check) + ' external link không có thuộc tính rel nofollow'
+        status = 'Warning'
+    else:
+        msg = 'Tốt. Trang web của bạn tất cả link external thuộc tính rel có nofollow'
+        status = 'Pass'
+
+    result = [status, msg]
 
     return result
 
@@ -263,11 +281,6 @@ def handle_sitemap(domain):
     result = [status, msg]
     return result
 
-
-def image_size(soup):
-    result = ''
-
-    return result
 
 
 def page_loading_speed(soup):
@@ -303,14 +316,3 @@ def link_external(domain, soup):
             list_ex.append(href)
 
     return list_ex
-
-
-def handle_iframe(soup):
-    list_iframe = soup.find_all('iframe')
-
-    if len(list_iframe) > 0:
-        result = 'Trang web của bạn có thẻ iframe hãy cẩn thận khi sử dụng chúng'
-    else:
-        result = 'Pass'
-
-    return result
